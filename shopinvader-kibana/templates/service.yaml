@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopinvader-kibana-service
+  labels:
+    {{- include "shopinvader-kibana.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 5601
+      protocol: TCP
+      name: shopinvader-kibana-service
+  selector:
+    {{- include "shopinvader-kibana.selectorLabels" . | nindent 4 }}

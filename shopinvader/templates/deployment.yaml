@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "shopinvader.fullname" . }}
+  labels:
+    {{- include "shopinvader.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "shopinvader.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "shopinvader.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "shopinvader.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: shopinvader
+              containerPort: 3000
+
+          env:
+            - name: RAILS_ENV
+              value: {{ .Values.envValues.railsEnv }}
+    #           value: development
+            - name: DRAGON_FLY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: shopinvader-secret
+                  key: DRAGON_FLY_SECRET
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: shopinvader-secret
+                  key: SECRET_KEY_BASE
+            - name: LOCOMOTIVE_ENABLE_REGISTRATION
+              value: {{ .Values.envValues.locomotiveEnableRegistration | quote }}
+            - name: LOCOMOTIVE_ADMIN_SSL_REDIRECT
+              value: {{ .Values.envValues.locomotiveAdminSSLRedirect | quote }}
+            {{- if .Values.envValues.cdnAssetHost }}
+            - name: CDN_ASSET_HOST
+              value: {{ .Values.envValues.cdnAssetHost | quote }}
+            {{- end }}
+            - name: RAILS_SERVE_STATIC_FILES
+              value: {{ .Values.envValues.railsServeStaticFiles | quote }}
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: shopinvader-secret
+                  key: mongo-root-uri
+            - name: MONGODB_DEV_HOST
+              value: {{ .Values.envValues.mongodbDevHost | quote }}
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
