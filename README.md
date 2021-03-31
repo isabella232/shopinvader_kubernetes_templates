@@ -1,9 +1,9 @@
 
 # ShopInvader Kubernetes
 
-## context
+## Introduction
 
-Set of helm packages that will allows you to deploy in production or in developpement context a working shop invader
+Set of helm packages that will allows you to deploy in production or in developpement context a working Shopinvader
 
 ## Overview
 
