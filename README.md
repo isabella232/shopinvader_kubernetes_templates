@@ -1,5 +1,5 @@
 
-# Shop Invader Kubernetes
+# ShopInvader Kubernetes
 
 ## context
 
