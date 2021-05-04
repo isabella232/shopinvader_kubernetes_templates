@@ -10,12 +10,12 @@ spec:
   ports:
     - port: {{ .Values.service.clientPort }}
       name: client
-      # targetPort: 9200
+      targetPort: 9200
     - port: {{ .Values.service.nodePort }}
       name: nodes
-      # targetPort: 9300
+      targetPort: 9300
     - port: {{ .Values.service.kibanaPort }}
       name: kibana
-      # targetPort: 5601
+      targetPort: 5601
   selector:
     {{- include "elasticsearch.selectorLabels" . | nindent 4 }}

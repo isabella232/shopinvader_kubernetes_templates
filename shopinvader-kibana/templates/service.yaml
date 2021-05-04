@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      # targetPort: 5601
+      targetPort: 5601
       protocol: TCP
-      name: shopinvader-kibana
+      name: shopinvader-kibana-service
   selector:
     {{- include "shopinvader-kibana.selectorLabels" . | nindent 4 }}
