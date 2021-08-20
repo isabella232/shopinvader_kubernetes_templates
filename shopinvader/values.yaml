@@ -57,7 +57,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -65,9 +65,8 @@ resources: {}
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  requests:
+    memory: 10Mi
 
 autoscaling:
   enabled: false
@@ -82,12 +81,14 @@ tolerations: []
 
 affinity: {}
 
-envValues:
-  railsEnv: production
-# rails_env: development
-  locomotiveEnableRegistration: "true"
-  locomotiveAdminSSLRedirect: "false"
-  railsServeStaticFiles: "true"
-  mongodbDevHost: "mongodb-service"
-  # cdnAssetHost: url
-
+shopinvader:
+  RailsEnv: development
+  LocomotiveEnableRegistration: "true"
+  LocomotiveAdminSslRedirect : "false"
+  MongoDbDevHost: "mongodb-service"
+  StoreAssetInS3: "false"
+  S3BucketRegion: "s3locomotiveregion"
+  S3CacheControl: 3600
+  CdndAssetHost: url
+  RailsServeStaticFiles: "true"
+  secrets: {}
