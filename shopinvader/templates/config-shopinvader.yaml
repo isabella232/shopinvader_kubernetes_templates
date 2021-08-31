@@ -11,8 +11,7 @@ data:
   {{- if .Values.shopinvader.CdnHostUrl }}
   CDN_ASSET_HOST: {{ .Values.shopinvader.CdnHostUrl }}
   {{- end }}
-  RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailServerStaticFiles }}
-  RAILS_ENV: {{ .Values.shopinvader.RailEnv }}
-  LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnabkeRegistration }}
+  RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailsServeStaticFiles }}
+  RAILS_ENV: {{ .Values.shopinvader.RailsEnv }}
+  LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnableRegistration }}
   LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect }}
-  MONGODB_DEV_HOST: {{ .Values.shopinvader.MongoDevHost }}
