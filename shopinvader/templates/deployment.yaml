@@ -35,11 +35,22 @@ spec:
           livenessProbe:
             httpGet:
               path: /locomotive/
-              port: 3000
+              port: shopinvader
+            failureThreshold: 2
+            periodSeconds: 5
+            initialDelaySeconds: 15
           readinessProbe:
             httpGet:
               path: /locomotive/
-              port: 3000
+              port: shopinvader
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /locomotive/
+              port: shopinvader
+            failureThreshold: 30
+            periodSeconds: 10
           ports:
             - name: shopinvader
               containerPort: 3000
