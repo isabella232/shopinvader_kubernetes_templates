@@ -4,14 +4,14 @@ metadata:
   name: shopinvader-config
 data:
   {{- if .Values.shopinvader.StoreAssetInS3 }}
-  STORE_ASSET_IN_S3: {{ .Values.shopinvader.StoreAssetInS3 }}
+  STORE_ASSET_IN_S3: {{ .Values.shopinvader.StoreAssetInS3 | quote }}
   S3_BUCKET_REGION: {{ .Values.shopinvader.S3BucketRegion }}
   S3_CACHE_CONTROL: {{ .Values.shopinvader.S3CacheControl }}
   {{- end }}
   {{- if .Values.shopinvader.CdnHostUrl }}
   CDN_ASSET_HOST: {{ .Values.shopinvader.CdnHostUrl }}
   {{- end }}
-  RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailsServeStaticFiles }}
+  RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailsServeStaticFiles | quote }}
   RAILS_ENV: {{ .Values.shopinvader.RailsEnv }}
-  LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnableRegistration }}
-  LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect }}
+  LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnableRegistration | quote }}
+  LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect | quote }}
