@@ -3,16 +3,16 @@ kind: ConfigMap
 metadata:
   name: shopinvader-config
 data:
-  {{- if Values.shopinvader.StoreAssetInS3 }}
-  STORE_ASSET_IN_S3: {{ Values.shopinvader.StoreAssetInS3 }}
-  S3_BUCKET_REGION: {{ Values.shopinvader.S3BucketRegion }}
-  S3_CACHE_CONTROL: {{ Values.shopinvader.S3CacheControl }}
+  {{- if .Values.shopinvader.StoreAssetInS3 }}
+  STORE_ASSET_IN_S3: {{ .Values.shopinvader.StoreAssetInS3 }}
+  S3_BUCKET_REGION: {{ .Values.shopinvader.S3BucketRegion }}
+  S3_CACHE_CONTROL: {{ .Values.shopinvader.S3CacheControl }}
   {{- end }}
-  {{- if Values.shopinvader.CdnHostUrl }}
-  CDN_ASSET_HOST: {{ Values.shopinvader.CdnHostUrl }}
+  {{- if .Values.shopinvader.CdnHostUrl }}
+  CDN_ASSET_HOST: {{ .Values.shopinvader.CdnHostUrl }}
   {{- end }}
-  RAILS_SERVE_STATIC_FILES: {{ Values.shopinvader.RailServerStaticFiles }}
-  RAILS_ENV: {{ Values.shopinvader.RailEnv }}
-  LOCOMOTIVE_ENABLE_REGISTRATION: {{ Values.shopinvader.LocomotiveEnabkeRegistration }}
-  LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ Values.shopinvader.LocomotiveAdminSslRedirect }}
-  MONGODB_DEV_HOST: {{ Values.shopinvader.MongoDevHost }}
+  RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailServerStaticFiles }}
+  RAILS_ENV: {{ .Values.shopinvader.RailEnv }}
+  LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnabkeRegistration }}
+  LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect }}
+  MONGODB_DEV_HOST: {{ .Values.shopinvader.MongoDevHost }}
