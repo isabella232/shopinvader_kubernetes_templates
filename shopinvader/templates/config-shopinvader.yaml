@@ -6,7 +6,7 @@ data:
   {{- if .Values.shopinvader.StoreAssetInS3 }}
   STORE_ASSET_IN_S3: {{ .Values.shopinvader.StoreAssetInS3 | quote }}
   S3_BUCKET_REGION: {{ .Values.shopinvader.S3BucketRegion }}
-  S3_CACHE_CONTROL: {{ .Values.shopinvader.S3CacheControl }}
+  S3_CACHE_CONTROL: {{ .Values.shopinvader.S3CacheControl | quote }}
   {{- end }}
   {{- if .Values.shopinvader.CdnHostUrl }}
   CDN_ASSET_HOST: {{ .Values.shopinvader.CdnHostUrl }}
