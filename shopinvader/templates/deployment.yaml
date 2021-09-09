@@ -54,6 +54,17 @@ spec:
           ports:
             - name: shopinvader
               containerPort: 3000
+          env:
+            - name: S3_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: s3-gateway-minio
+                  key: access-key
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-gateway-minio
+                  key: secret-key
           envFrom:
             - configMapRef:
                 name: shopinvader-config
