@@ -88,6 +88,8 @@ shopinvader:
   MongoDbDevHost: "mongodb-service"
   StoreAssetInS3: "false"
   S3SecretName: "s3-gateway-minio"
+  S3SecretAccessKey: "access-key"
+  S3SecretSecretKey: "secret-key"
   S3BucketRegion: "s3locomotiveregion"
   S3CacheControl: 3600
   CdndAssetHost: url

@@ -59,12 +59,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.shopinvader.S3SecretName }}
-                  key: access-key
+                  key: {{ .Values.shopinvader.S3SecretAccessKey }}
             - name: S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.shopinvader.S3SecretName }}
-                  key: secret-key
+                  key: {{ .Values.shopinvader.S3SecretSecretKey }}
           envFrom:
             - configMapRef:
                 name: shopinvader-config
