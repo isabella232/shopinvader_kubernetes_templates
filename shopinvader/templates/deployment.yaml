@@ -54,6 +54,17 @@ spec:
           ports:
             - name: shopinvader
               containerPort: 3000
+          env:
+            - name: S3_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.shopinvader.S3SecretName }}
+                  key: {{ .Values.shopinvader.S3SecretAccessKey }}
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.shopinvader.S3SecretName }}
+                  key: {{ .Values.shopinvader.S3SecretSecretKey }}
           envFrom:
             - configMapRef:
                 name: shopinvader-config
