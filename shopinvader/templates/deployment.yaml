@@ -58,12 +58,12 @@ spec:
             - name: S3_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: s3-gateway-minio
+                  name: {{ .Values.shopinvader.S3SecretName }}
                   key: access-key
             - name: S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: s3-gateway-minio
+                  name: {{ .Values.shopinvader.S3SecretName }}
                   key: secret-key
           envFrom:
             - configMapRef:

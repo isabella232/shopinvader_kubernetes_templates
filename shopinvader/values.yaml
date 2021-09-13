@@ -87,6 +87,7 @@ shopinvader:
   LocomotiveAdminSslRedirect : "false"
   MongoDbDevHost: "mongodb-service"
   StoreAssetInS3: "false"
+  S3SecretName: "s3-gateway-minio"
   S3BucketRegion: "s3locomotiveregion"
   S3CacheControl: 3600
   CdndAssetHost: url
