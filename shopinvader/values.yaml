@@ -10,6 +10,13 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v4.0.x-20201211"
 
+image_varnish:
+  repository: quay.io/akretion/varnish:latest
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -36,9 +43,10 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
+service_varnish:
+  name: varnish_routing
   type: NodePort
-  port: 3000
+  port: 80
 
 ingress:
   enabled: false
@@ -88,10 +96,13 @@ shopinvader:
   MongoDbDevHost: "mongodb-service"
   StoreAssetInS3: "false"
   S3SecretName: "s3-gateway-minio"
-  S3SecretAccessKey: "access-key"
-  S3SecretSecretKey: "secret-key"
   S3BucketRegion: "s3locomotiveregion"
   S3CacheControl: 3600
   CdndAssetHost: url
   RailsServeStaticFiles: "true"
   secrets: {}
+
+varnish:
+  BackendIp: 127.0.0.1
+  BackendPort: 3000
+
