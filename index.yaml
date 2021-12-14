@@ -3,7 +3,17 @@ entries:
   shopinvader:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.726066723+01:00"
+    created: "2021-12-14T15:39:27.401632787+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 4980539f38fcacd9b426dddaadab1c7c7f8ee90d7ebe6d0c9cfd3da5e2bb8882
+    name: shopinvader
+    type: application
+    urls:
+    - shopinvader-0.1.21.tgz
+    version: 0.1.21
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-14T15:39:27.401137979+01:00"
     description: A Helm chart for Kubernetes
     digest: 0c44df1887ab00289a7c7963548d17bf2a3787ce5360ac7a01a581685c5d6cc8
     name: shopinvader
@@ -13,7 +23,7 @@ entries:
     version: 0.1.20
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.725588446+01:00"
+    created: "2021-12-14T15:39:27.40063563+01:00"
     description: A Helm chart for Kubernetes
     digest: dcbe45115386d79bbd23fbfde9e2b01cd3530d94f4c325dd4861371db45a74cd
     name: shopinvader
@@ -23,7 +33,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.725120618+01:00"
+    created: "2021-12-14T15:39:27.400155433+01:00"
     description: A Helm chart for Kubernetes
     digest: a609ec314e15c4a844235c07fe2d128cb91e78da906f12469ca132150d536a9c
     name: shopinvader
@@ -33,7 +43,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.724635776+01:00"
+    created: "2021-12-14T15:39:27.399673449+01:00"
     description: A Helm chart for Kubernetes
     digest: 66da4b314d4a125d2cdec1fa301d72cc7329e6da4ef40062060d547ada08dcfe
     name: shopinvader
@@ -43,7 +53,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.72414885+01:00"
+    created: "2021-12-14T15:39:27.399190874+01:00"
     description: A Helm chart for Kubernetes
     digest: 281b9588a8afdb2cb2106b2293fb3a223a8bba4177107dba91a4c3d5a422b87c
     name: shopinvader
@@ -53,7 +63,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.723651738+01:00"
+    created: "2021-12-14T15:39:27.39869696+01:00"
     description: A Helm chart for Kubernetes
     digest: 4c16c59a399c5863c491d754bf4173089eab322f557344aaff4d7d60e7e9974f
     name: shopinvader
@@ -63,7 +73,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.723112215+01:00"
+    created: "2021-12-14T15:39:27.398219687+01:00"
     description: A Helm chart for Kubernetes
     digest: 3f4dbe2459c1252b2d1cca70c0846ed0a6907a4cf6333dcf4f89e0976bddc6f7
     name: shopinvader
@@ -73,7 +83,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.722575011+01:00"
+    created: "2021-12-14T15:39:27.39775552+01:00"
     description: A Helm chart for Kubernetes
     digest: c02b68c222d0a0d859487788337bcf7594ecc950a058f88937257b6549278230
     name: shopinvader
@@ -83,7 +93,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.722092681+01:00"
+    created: "2021-12-14T15:39:27.397298885+01:00"
     description: A Helm chart for Kubernetes
     digest: 0e9e9f4cb623cf98ea3ac24237877aa2b731ad1cb4649f1d71b6a57a97d999d2
     name: shopinvader
@@ -93,7 +103,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T15:30:08.721629401+01:00"
+    created: "2021-12-14T15:39:27.396854992+01:00"
     description: A Helm chart for Kubernetes
     digest: f25c4d4171b6524486a7d619edfdbda95aa5bd9dd7b7c30d9d640e09fcdc10ba
     name: shopinvader
@@ -101,4 +111,4 @@ entries:
     urls:
     - shopinvader-0.1.11.tgz
     version: 0.1.11
-generated: "2021-12-14T15:30:08.720978241+01:00"
+generated: "2021-12-14T15:39:27.396277362+01:00"
