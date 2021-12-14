@@ -99,6 +99,7 @@ shopinvader:
   S3BucketRegion: "s3locomotiveregion"
   S3CacheControl: 3600
   CdndAssetHost: url
+  CdnHostUrl: tutu
   RailsServeStaticFiles: "true"
   secrets: {}
 
