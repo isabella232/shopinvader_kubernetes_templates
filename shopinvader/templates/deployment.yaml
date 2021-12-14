@@ -28,7 +28,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: "Varnish"
-          images: "{{ .Values.image_varnish.repository }}:{{ .Values.image_varnish.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image_varnish.repository }}:{{ .Values.image_varnish.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image_varnish.pullPolicy }}
           livenessProbe:
               tcpSocket:
