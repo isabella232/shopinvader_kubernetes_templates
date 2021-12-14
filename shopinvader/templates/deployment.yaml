@@ -39,8 +39,9 @@ spec:
           ports:
             - name: varnish
               containerPort: 80
-          - configMapRef:
-              name: varnish-config
+          envFrom:
+            - configMapRef:
+                name: varnish-config
 
         - name: {{ .Chart.Name }}
           securityContext:

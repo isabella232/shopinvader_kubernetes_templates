@@ -11,11 +11,11 @@ data:
   {{- if .Values.shopinvader.CdnHostUrl }}
   CDN_ASSET_HOST: {{ .Values.shopinvader.CdnHostUrl }}
   {{- end }}
+  RAILS_ENV: {{ .Values.shopinvader.RailsEnv | quote }}
   RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailsServeStaticFiles | quote }}
-  RAILS_ENV: {{ .Values.shopinvader.RailsEnv }}
   LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnableRegistration | quote }}
   LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect | quote }}
---
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
