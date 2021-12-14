@@ -27,6 +27,21 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
+        - name: "Varnish"
+          images: "{{ .Values.image_varnish.repository }}:{{ .Values.image_varnish.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image_varnish.pullPolicy }}
+          livenessProbe:
+              tcpSocket:
+                port: varnish
+          readinessProbe:
+              tcpSocket:
+                port: varnish
+          ports:
+            - name: varnish
+              containerPort: 80
+          - configMapRef:
+              name: varnish-config
+
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -54,17 +69,6 @@ spec:
           ports:
             - name: shopinvader
               containerPort: 3000
-          env:
-            - name: S3_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.shopinvader.S3SecretName }}
-                  key: {{ .Values.shopinvader.S3SecretAccessKey }}
-            - name: S3_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.shopinvader.S3SecretName }}
-                  key: {{ .Values.shopinvader.S3SecretSecretKey }}
           envFrom:
             - configMapRef:
                 name: shopinvader-config

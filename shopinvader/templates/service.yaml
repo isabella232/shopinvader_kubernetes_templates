@@ -6,7 +6,8 @@ metadata:
     {{- include "shopinvader.labels" . | nindent 4 }}
 spec:
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - port: {{ .Values.service_varnish.port }}
+      targetPort: {{ .Values.varnish.BackendPort }}
   selector:
     {{- include "shopinvader.selectorLabels" . | nindent 4 }}
+
