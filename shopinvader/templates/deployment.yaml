@@ -27,7 +27,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: "Varnish"
+        - name: "varnish"
           image: "{{ .Values.image_varnish.repository }}:{{ .Values.image_varnish.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image_varnish.pullPolicy }}
           livenessProbe:
