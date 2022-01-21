@@ -97,6 +97,13 @@ shopinvader:
   StoreAssetInS3: "false"
   S3CacheControl: 3600
   RailsServeStaticFiles: "true"
+  SmtpEnableStarttlsAuto: "true"
+  SmtpHeloDomain:
+  SmtpPort:
+  SmtpSender:
+  SmtpUserName:
+  Smtp_Authentication:
+
   secrets: {}
 
 varnish:

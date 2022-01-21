@@ -17,4 +17,14 @@ data:
   RAILS_SERVE_STATIC_FILES: {{ .Values.shopinvader.RailsServeStaticFiles | quote }}
   LOCOMOTIVE_ENABLE_REGISTRATION: {{ .Values.shopinvader.LocomotiveEnableRegistration | quote }}
   LOCOMOTIVE_ADMIN_SSL_REDIRECT: {{ .Values.shopinvader.LocomotiveAdminSslRedirect | quote }}
+  {{- if .Values.shopinvader.SmtpAddress }}
+  SMTP_ENABLE_STARTTLS_AUTO: {{ .Values.shopinvader.SmtpEnableStarttlsAuto | quote }}
+  SMTP_HELO_DOMAIN: {{ .Values.shopinvader.SmtpHeloDomain | quote }}
+  SMTP_ADDRESS: {{ .Values.shopinvader.SmtpAddress | quote }}
+  SMTP_PORT: {{ .Values.shopinvader.SmtpPort | quote }}
+  SMTP_SENDER: {{ .Values.shopinvader.SmtpSender | quote }}
+  SMTP_USERNAME: {{ .Values.shopinvader.SmtpUserName | quote }}
+  SMTP_AUTHENTICATION: {{ .Values.shopinvader.Smtp_Authentication | quote }}
+  {{- end }}
+
 
