@@ -13,8 +13,11 @@ spec:
       {{- include "shopinvader.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        config-hash-shopinvader: {{ include (print $.Template.BasePath "/config-shopinvader.yaml") $ | sha256sum | trunc 63 }}
+        config-hash-shopinvader-secret: {{ include (print $.Template.BasePath "/secret-shopinvader.yaml") $ | sha256sum | trunc 63 }}
+        config-hash-varnish: {{ include (print $.Template.BasePath "/config-varnish.yaml") $ | sha256sum | trunc 63 }}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
