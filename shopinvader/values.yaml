@@ -59,15 +59,15 @@ service_varnish:
   type: NodePort
   port: 80
 
-ingressRouteClient: # {}
-  hosts:
-    - "integration.c2c.odoo.camptocamp.ch"
-  pathPrefix: '/'
+ingressRouteClient: {}
+  #hosts:
+  # - "ingress-for-client.local"
+  #pathPrefix: '/'
 
-ingressRouteInternal: # {}
-  hosts:
-    - "odoo-camptocamp-int.apps.odoo-ch-prod.camptocamp.com"
-  pathPrefix: '/'
+ingressRouteInternal: {}
+  #hosts:
+  # - "ingress-for-c2c.local"
+  #pathPrefix: '/'
 
 issuerRef: letsencrypt-prod
 
