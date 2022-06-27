@@ -1,0 +1,40 @@
+{{- $svcName := include "shopinvader.fullname" . }}
+{{- with .Values.ingressRouteInternal }}
+{{- $match := printf "Host(`%s`)" ( join "`) || Host(`" .hosts ) }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: shopinvader-ingressroute-internal
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    {{- range $.Values.rateLimit.paths }}
+    - match: {{ printf "(%s) && Path(`%s`)" $match . | quote }}
+      kind: Rule
+      middlewares:
+        - name: shopinvader-ratelimit
+        - name: redirect-https
+        {{- if $.Values.waf.enabled }}
+        - name: waf-authforward
+        {{- end }}
+      services:
+        - name: {{ $svcName }}
+          port: 80
+    {{- end }}
+    - match: {{ printf "(%s) && PathPrefix(`%s`)" $match .pathPrefix | quote }}
+      kind: Rule
+      middlewares:
+        - name: redirect-https
+        {{- if $.Values.waf.enabled }}
+        - name: waf-authforward
+        {{- end }}
+      services:
+        - name: {{ $svcName }}
+          port: 80
+      priority: 1
+  tls:
+    store: 
+      name: default
+{{- end }}

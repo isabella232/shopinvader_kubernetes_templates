@@ -1,0 +1,32 @@
+{{- if $.Values.rateLimit }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: shopinvader-ratelimit
+spec:
+  rateLimit:
+    average: {{ .Values.rateLimit.average }}
+    burst: {{ .Values.rateLimit.burst }}
+{{- end }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-https
+spec:
+  redirectScheme:
+    scheme: https
+
+{{- if $.Values.waf.enabled }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: waf-authforward
+spec:
+  forwardAuth:
+    address: {{ .Values.waf.address }}
+    trustForwardHeader: {{ .Values.waf.trustForwardHeader }}
+{{- end }}
