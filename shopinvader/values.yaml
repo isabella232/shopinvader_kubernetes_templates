@@ -50,7 +50,7 @@ rateLimit: {}
   #   - "/"
 
 waf:
-  enabled: true
+  enabled: false
   address: "http://waf.waf.svc.cluster.local"
   trustForwardHeader: false
 
