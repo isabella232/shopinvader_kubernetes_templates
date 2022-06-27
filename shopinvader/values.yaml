@@ -91,13 +91,13 @@ affinity: {}
 
 shopinvader:
   RailsEnv: development
-  LocomotiveEnableRegistration: "true"
-  LocomotiveAdminSslRedirect : "false"
+  LocomotiveEnableRegistration: true
+  LocomotiveAdminSslRedirect : false
   MongoDbDevHost: "mongodb-service"
-  StoreAssetInS3: "false"
+  StoreAssetInS3: false
   S3CacheControl: 3600
-  RailsServeStaticFiles: "true"
-  SmtpEnableStarttlsAuto: "true"
+  RailsServeStaticFiles: true
+  SmtpEnableStarttlsAuto: true
   SmtpHeloDomain:
   SmtpPort:
   SmtpSender:
